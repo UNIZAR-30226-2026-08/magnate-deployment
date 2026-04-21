@@ -12,10 +12,11 @@ services:
       - "5432:5432"
 
   backend:
-    build: ./backend 
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
     container_name: magnate_backend
     restart: always
-    command: bash -c "python manage.py migrate && gunicorn --bind 0.0.0.0:8000 mi_juego.wsgi:application"
     env_file: .env
     depends_on:
       - db
@@ -27,8 +28,12 @@ services:
       - "8000:8000"
 
   frontend:
-    build: ./frontend-web
-    container_name: magnate_frontend
+    build:
+      context: .
+            dockerfile: Dockerfile.frontend-web
+            args:
+              - REACT_APP_API_URL=/api
+    container_name: magnate_frontend_web
     restart: always
     depends_on:
       - backend
