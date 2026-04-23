@@ -12,7 +12,7 @@ POSTGRES_DB=db_magnate
 POSTGRES_USER=admin_magnate
 POSTGRES_PASSWORD="unsafe_password"
 DB_HOST=db
-DB_PORT=5432
+DB_PORT=5433
 
 # Django
 SECRET_KEY="another_unsafe_password"
