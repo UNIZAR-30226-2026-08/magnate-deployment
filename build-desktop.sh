@@ -2,7 +2,7 @@
 
 GODOT_DIR="./frontend-desktop/magnate"
 OUTPUT_DIR="desktop-releases"
-GODOT_VERSION="4.2.1"
+GODOT_VERSION="4.6"
 
 mkdir -p "$OUTPUT_DIR"
 
