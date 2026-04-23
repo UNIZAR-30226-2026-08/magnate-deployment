@@ -20,15 +20,15 @@ docker run --rm \
 
     echo '📦 Exporting Linux...' &&
     mkdir -p /workspace/${OUTPUT_DIR}/linux &&
-    godot --headless --path '$GODOT_PROJECT_PATH' --export-release 'Linux/X11' '/workspace/${OUTPUT_DIR}/linux/mi_juego.x86_64' &&
+    godot --headless --path '$GODOT_PROJECT_PATH' --export-release 'Linux' '/workspace/${OUTPUT_DIR}/linux/Magnate.x86_64' &&
     
     echo '📦 Exporting Windows...' &&
     mkdir -p /workspace/${OUTPUT_DIR}/windows &&
-    godot --headless --path '$GODOT_PROJECT_PATH' --export-release 'Windows Desktop' '/workspace/${OUTPUT_DIR}/windows/mi_juego.exe' &&
+    godot --headless --path '$GODOT_PROJECT_PATH' --export-release 'Windows Desktop' '/workspace/${OUTPUT_DIR}/windows/Magnate.exe' &&
     
     echo '📦 Exporting MacOS...' &&
     mkdir -p /workspace/${OUTPUT_DIR}/macos &&
-    godot --headless --path '$GODOT_PROJECT_PATH' --export-release 'macOS' '/workspace/${OUTPUT_DIR}/macos/mi_juego.zip' &&
+    godot --headless --path '$GODOT_PROJECT_PATH' --export-release 'macOS' '/workspace/${OUTPUT_DIR}/macos/Magnate.zip' &&
     
     echo '✅ All exports completed successfully!'
   "
