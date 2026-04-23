@@ -1,10 +1,10 @@
 FROM node:18-alpine AS build
 WORKDIR /app
 
-COPY frontend-web/package*.json ./
+COPY frontend-web/magnate/package*.json ./
 RUN npm install
 
-COPY frontend-web/ .
+COPY frontend-web/magnate .
 
 ARG REACT_APP_API_URL
 ENV REACT_APP_API_URL=$REACT_APP_API_URL
