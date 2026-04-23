@@ -1,9 +1,12 @@
 [submodule "backend"]
 	path = backend
 	url = https://github.com/UNIZAR-30226-2026-08/backend
+    branch = main
 [submodule "frontend-web"]
 	path = frontend-web
 	url = https://github.com/UNIZAR-30226-2026-08/frontend-web.git
+    branch = main
 [submodule "frontend-desktop"]
 	path = frontend-desktop
 	url = https://github.com/UNIZAR-30226-2026-08/frontend-desktop.git
+    branch = dev # FIXME
