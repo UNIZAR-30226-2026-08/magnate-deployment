@@ -3,5 +3,6 @@
 # Updates all repositories using git
 
 git pull
-git submodule update --recursive --remote
+git submodule sync
+git submodule update --remote --rebase
 
