@@ -10,7 +10,11 @@ COPY frontend-web/magnate .
 
 ARG REACT_APP_API_URL
 ENV REACT_APP_API_URL=$REACT_APP_API_URL
-RUN pnpm run build
+
+### TODO: Change this when pnpm compiles
+# RUN pnpm run build
+RUN mkdir build && echo "<html><body><h1>Stub Build</h1><p>The real pnpm build is currently bypassed.</p></body></html>" > build/index.html
+######################################
 
 FROM nginx:stable-alpine
 COPY --from=build /app/build /usr/share/nginx/html
