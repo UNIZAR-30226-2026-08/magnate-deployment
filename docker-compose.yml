@@ -3,7 +3,10 @@ services:
     image: postgres:15-alpine
     container_name: magnate_db
     restart: always
-    env_file: .env
+    environment:
+      - POSTGRES_USER=magnate_user
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=magnate_db
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
@@ -20,9 +23,18 @@ services:
       dockerfile: Dockerfile.backend
     container_name: magnate_backend
     restart: always
+    environment:
+      - DEBUG=False
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=magnate_db
+      - DB_USER=magnate_user
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
     env_file: .env
     depends_on:
       - db
+      - redis
     command: >
         sh -c "python manage.py migrate && 
                python manage.py collectstatic --noinput &&
