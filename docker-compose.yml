@@ -38,10 +38,11 @@ services:
       - db
       - redis
     command: >
-        sh -c "python manage.py makemigrations && 
-               python manage.py migrate && 
-               python manage.py collectstatic --noinput &&
-               gunicorn --bind 0.0.0.0:8000 mi_proyecto.wsgi:application"
+       sh -c "python manage.py makemigrations magnate &&
+             python manage.py migrate magnate &&
+             python manage.py migrate &&
+             python manage.py collectstatic --noinput &&
+             gunicorn --bind 0.0.0.0:8000 magnate.wsgi:application"
     ports:
       - "${BACKEND_PORT}:8000"
 
