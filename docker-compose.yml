@@ -6,15 +6,11 @@ services:
     env_file: .env
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    ports:
-      - "${POSTGRES_PORT}:5432"
 
   redis:
     image: redis:7-alpine
     container_name: magnate_redis
     restart: always
-    ports:
-      - "${REDIS_PORT}:6379"
     volumes:
       - redis_data:/data
 
