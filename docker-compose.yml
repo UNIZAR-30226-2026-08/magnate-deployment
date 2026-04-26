@@ -43,8 +43,6 @@ services:
              python manage.py migrate &&
              python manage.py collectstatic --noinput &&
              gunicorn --bind 0.0.0.0:8000 magnate.wsgi:application"
-    ports:
-      - "${BACKEND_PORT}:8000"
 
   frontend:
     build:
