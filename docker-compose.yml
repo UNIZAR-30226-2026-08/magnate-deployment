@@ -29,6 +29,7 @@ services:
       - DB_PORT=5432
       - DB_NAME=magnate_db
       - DB_USER=magnate_user
+      - DB_PASSWORD=${DB_PASSWORD}
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - CORS_ALLOWED_ORIGINS=frontend
