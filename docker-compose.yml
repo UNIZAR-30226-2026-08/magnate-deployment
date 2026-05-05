@@ -32,8 +32,7 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
       - REDIS_HOST=redis
       - REDIS_PORT=6379
-      - ALLOWED_HOSTS=192.168.50.12,localhost,backend #mover a .env??????????
-      - CORS_ALLOWED_ORIGINS=https://192.168.50.12:${FRONTEND_HTTPS_PORT}
+      - CORS_ALLOWED_ORIGINS=https://192.168.50.12:${FRONTEND_HTTPS_PORT},https://ninrouter.asuscomm.com:${FRONTEND_HTTPS_PORT}
     env_file: .env
     depends_on:
       - db
