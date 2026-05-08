@@ -3,7 +3,7 @@ WORKDIR /app
 
 RUN npm install -g pnpm@latest
 
-COPY frontend-web/magnate/package.json frontend-web/magnate/pnpm-lock.yaml* ./
+COPY frontend-web/magnate/package.json frontend-web/magnate/pnpm-lock.yaml* frontend-web/magnate/pnpm-workspace.yaml ./
 RUN pnpm install --frozen-lockfile
 
 COPY frontend-web/magnate .
