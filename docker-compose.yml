@@ -51,7 +51,7 @@ services:
       dockerfile: Dockerfile.frontend-web
       args:
         - VITE_API_BASE_URL=/api
-        - VITE_WS_URL=/api
+        - VITE_WS_URL=/api/ws
     container_name: magnate_frontend_web
     restart: always
     ports:
