@@ -15,7 +15,7 @@ echo "Generating self-signed 2048-bit RSA certificate..."
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
   -keyout "$CERT_DIR/privkey.pem" \
   -out "$CERT_DIR/fullchain.pem" \
-  -subj "/C=US/ST=Local/L=Local/O=Development/CN=localhost" 2>/dev/null
+  -subj "/C=US/ST=Local/L=Local/O=Development/CN=localhost"
 
 if [ $? -eq 0 ]; then
   echo "Success! Certificates are ready to use."
