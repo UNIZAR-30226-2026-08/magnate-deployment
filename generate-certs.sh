@@ -15,7 +15,8 @@ echo "Generating self-signed 2048-bit RSA certificate..."
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
   -keyout "$CERT_DIR/privkey.pem" \
   -out "$CERT_DIR/fullchain.pem" \
-  -subj "/C=US/ST=Local/L=Local/O=Development/CN=localhost"
+  -subj "/C=ES/ST=Local/L=Local/O=Development/CN=localhost" \
+  -addext "subjectAltName=DNS:localhost,IP:127.0.0.1" # Fix this?
 
 if [ $? -eq 0 ]; then
   echo "Success! Certificates are ready to use."
