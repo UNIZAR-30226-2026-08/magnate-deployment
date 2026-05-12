@@ -17,6 +17,29 @@ services:
     volumes:
       - redis_data:/data
 
+  celery:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: magnate_celery
+    restart: always
+    environment:
+      - PYTHONUNBUFFERED=1
+      - DEBUG=False
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=magnate_db
+      - DB_USER=magnate_user
+      - DB_PASSWORD=${DB_PASSWORD}
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    env_file: .env
+    depends_on:
+      - db
+      - redis
+      - backend
+    command: celery -A magnate worker -l info
+
   backend:
     build:
       context: .
