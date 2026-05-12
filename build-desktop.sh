@@ -15,7 +15,17 @@ if [ -f .env ]; then
         echo -e "ERROR: BACKEND_HOST not defined in .env"
         exit 1
     fi
+    LINUX_RELEASE_BINARY=$(grep '^LINUX_RELEASE_BINARY=' .env | cut -d '=' -f2- | tr -d '"' | tr -d "'")
+    WINDOWS_RELEASE_BINARY=$(grep '^WINDOWS_RELEASE_BINARY=' .env | cut -d '=' -f2- | tr -d '"' | tr -d "'")
+    MACOS_RELEASE_BINARY=$(grep '^MACOS_RELEASE_BINARY=' .env | cut -d '=' -f2- | tr -d '"' | tr -d "'")
+
 fi
+
+LINUX_RELEASE_BINARY="${LINUX_RELEASE_BINARY:-Magnate.x86_64}"
+WINDOWS_RELEASE_BINARY="${WINDOWS_RELEASE_BINARY:-Magnate.exe}"
+MACOS_RELEASE_BINARY="${MACOS_RELEASE_BINARY:-Magnate.zip}"
+
+
 
 # TODO: Remove
 CERT_SOURCE="ssl-certs/fullchain.pem"
@@ -56,15 +66,15 @@ docker run --rm \
 
     echo '📦 Exporting Linux...' &&
     mkdir -p /workspace/${OUTPUT_DIR}/linux &&
-    godot --headless --path '$GODOT_PROJECT_PATH' --export-release 'Linux' '/workspace/${OUTPUT_DIR}/linux/Magnate.x86_64' &&
+    godot --headless --path '$GODOT_PROJECT_PATH' --export-release 'Linux' '/workspace/${OUTPUT_DIR}/linux/${LINUX_RELEASE_BINARY}' &&
     
     echo '📦 Exporting Windows...' &&
     mkdir -p /workspace/${OUTPUT_DIR}/windows &&
-    godot --headless --path '$GODOT_PROJECT_PATH' --export-release 'Windows Desktop' '/workspace/${OUTPUT_DIR}/windows/Magnate.exe' &&
+    godot --headless --path '$GODOT_PROJECT_PATH' --export-release 'Windows Desktop' '/workspace/${OUTPUT_DIR}/windows/${WINDOWS_RELEASE_BINARY}' &&
     # 
     # echo '📦 Exporting MacOS...' &&
     # mkdir -p /workspace/${OUTPUT_DIR}/macos &&
-    # godot --headless --path '$GODOT_PROJECT_PATH' --export-release 'macOS' '/workspace/${OUTPUT_DIR}/macos/Magnate.zip' &&
+    # godot --headless --path '$GODOT_PROJECT_PATH' --export-release 'macOS' '/workspace/${OUTPUT_DIR}/macos/${MACOS_RELEASE_BINARY}' &&
     
     echo '✅ All exports completed successfully!'
   "
