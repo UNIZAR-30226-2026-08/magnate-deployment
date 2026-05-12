@@ -58,9 +58,9 @@ docker run --rm \
     mkdir -p /workspace/${OUTPUT_DIR}/linux &&
     godot --headless --path '$GODOT_PROJECT_PATH' --export-release 'Linux' '/workspace/${OUTPUT_DIR}/linux/Magnate.x86_64' &&
     
-    # echo '📦 Exporting Windows...' &&
-    # mkdir -p /workspace/${OUTPUT_DIR}/windows &&
-    # godot --headless --path '$GODOT_PROJECT_PATH' --export-release 'Windows Desktop' '/workspace/${OUTPUT_DIR}/windows/Magnate.exe' &&
+    echo '📦 Exporting Windows...' &&
+    mkdir -p /workspace/${OUTPUT_DIR}/windows &&
+    godot --headless --path '$GODOT_PROJECT_PATH' --export-release 'Windows Desktop' '/workspace/${OUTPUT_DIR}/windows/Magnate.exe' &&
     # 
     # echo '📦 Exporting MacOS...' &&
     # mkdir -p /workspace/${OUTPUT_DIR}/macos &&
