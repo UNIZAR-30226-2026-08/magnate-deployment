@@ -76,6 +76,10 @@ services:
       args:
         - VITE_API_BASE_URL=/api
         - VITE_WS_URL=/api/ws
+        - VITE_DOWNLOAD_SERVER=/downloads
+        - VITE_LINUX_RELEASE_BINARY=linux/Magnate.x86_64
+        - VITE_WINDOWS_RELEASE_BINARY=windows/Magnate.exe
+        - VITE_MACOS_RELEASE_BINARY=macos/Magnate.zip
     container_name: magnate_frontend_web
     restart: always
     ports:

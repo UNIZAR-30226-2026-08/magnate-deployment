@@ -22,10 +22,4 @@ BACKEND_HOST="hostname:port/route"
 
 SSL_BACKEND_IP=local-backend-ip
 SSL_DOMAIN=your-domain.com
-
-# Build names
-LINUX_RELEASE_BINARY=Magnate.x86_64
-WINDOWS_RELEASE_BINARY=Magnate.exe
-MACOS_RELEASE_BINARY=Magnate.zip
-
 ```
